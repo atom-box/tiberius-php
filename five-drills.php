@@ -45,3 +45,26 @@ echo(doubleX("3 Mr. DiMartino's children")); // false
 echo(doubleX("x")); // false
 echo(doubleX("XX")); // ???
 
+echo("////////////////////////////////////////\n");
+
+/*
+Given a string, return a new string made of 
+every other char starting with the first, so "Hello" yields "Hlo".
+*/
+
+interface WarmupTools {
+    public function stringBits(string $s) : string;
+}
+
+class SolutionTools implements WarmupTools {
+
+    public function stringBits(string $s) : string {
+        return "arise!\n";
+    }
+}
+
+$solver3 = new SolutionTools();
+
+echo($solver3->stringBits("Hello")); // "Hlo"
+echo($solver3->stringBits("Hi")); // "H"
+echo($solver3->stringBits("Heeololeo")); // "Hello"
