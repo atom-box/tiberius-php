@@ -57,18 +57,19 @@ interface WarmupTools {
 }
 
 class SolutionTools implements WarmupTools {
-
+    
     public function stringBits(string $s) : string {
         $allChars = [];
         $oddifiedString = '';
         $allChars = str_split($s, 1);
-         for($i = 0; $i < count($allChars); $i++){
+        for($i = 0; $i < count($allChars); $i++){
             if(   !($i % 2)){
                 $oddifiedString .= $allChars[$i];
             }
         }
         return "$oddifiedString\n";
     }
+
 }
 
 $solver3 = new SolutionTools();
@@ -76,3 +77,33 @@ $solver3 = new SolutionTools();
 echo("Oddified ". $solver3->stringBits("Hello")); // "Hlo"
 echo("Oddified ". $solver3->stringBits("Hi")); // "H"
 echo("Oddified ". $solver3->stringBits("Heeololeo")); // "Hello"
+
+
+echo("////////////////////////////////////////\n");
+/*
+                            _           
+                           (_)          
+  _ __ ___  ___ _   _ _ __ ___ ___   _____ 
+ | '__/ _ \/ __| | | | '__/ __| \ \ / / _ \
+ | | |  __/ (__| |_| | |  \__ \ |\ V /  __/
+ |_|  \___|\___|\__,_|_|  |___/_| \_/ \___|
+               
+We have triangle made of blocks. The topmost row has 1 block, 
+the next row down has 2 blocks, the next row has 3 blocks, and 
+so on. Compute recursively (no loops or multiplication) the total 
+number of blocks in such a triangle with the given number of rows.
+*/
+
+// $solver4 = new SolutionTools();
+function triangle(int $n): int{
+    if (1 === $n || 0 === $n){
+        return 1;
+    }
+    $thisLevel = $n;
+    $n -= 1;
+    return $thisLevel + triangle($n);
+}
+
+echo(triangle(0)."\n"); // 0  
+echo(triangle(1)."\n"); // 1
+echo(triangle(2)."\n"); // 3 
