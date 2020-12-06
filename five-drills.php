@@ -59,7 +59,17 @@ interface WarmupTools {
 class SolutionTools implements WarmupTools {
 
     public function stringBits(string $s) : string {
-        return "arise!\n";
+        $allChars = [];
+        $oddifiedString = '';
+        $allChars = str_split($s, 1);
+        echo("all chars: ");
+        var_dump($allChars);
+        for($i = 0; $i < count($allChars); $i++){
+            if(!$i % 2){
+                $oddifiedString .= $allChars[$i];
+            }
+        }
+        return "$oddifiedString\n";
     }
 }
 
