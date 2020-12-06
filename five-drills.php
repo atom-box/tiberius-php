@@ -62,10 +62,8 @@ class SolutionTools implements WarmupTools {
         $allChars = [];
         $oddifiedString = '';
         $allChars = str_split($s, 1);
-        echo("all chars: ");
-        var_dump($allChars);
-        for($i = 0; $i < count($allChars); $i++){
-            if(!$i % 2){
+         for($i = 0; $i < count($allChars); $i++){
+            if(   !($i % 2)){
                 $oddifiedString .= $allChars[$i];
             }
         }
@@ -75,6 +73,6 @@ class SolutionTools implements WarmupTools {
 
 $solver3 = new SolutionTools();
 
-echo($solver3->stringBits("Hello")); // "Hlo"
-echo($solver3->stringBits("Hi")); // "H"
-echo($solver3->stringBits("Heeololeo")); // "Hello"
+echo("Oddified ". $solver3->stringBits("Hello")); // "Hlo"
+echo("Oddified ". $solver3->stringBits("Hi")); // "H"
+echo("Oddified ". $solver3->stringBits("Heeololeo")); // "Hello"
