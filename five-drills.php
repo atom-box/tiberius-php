@@ -53,7 +53,7 @@ every other char starting with the first, so "Hello" yields "Hlo".
 
 interface WarmupTools {
     public function stringBits(string $s) : string;
-    public function arrayFront9(array $nums): bool;
+    public function arrayFront9(array $nums): string;
 }
 
 class SolutionTools implements WarmupTools {
@@ -70,8 +70,13 @@ class SolutionTools implements WarmupTools {
         return "$oddifiedString\n";
     }
     
-    public function arrayFront9(array $nums): bool{
-        return true;
+    public function arrayFront9(array $nums): string{
+        for($i = 0; $i < count($nums); $i++ ){
+            if (3 >= $i && 9 === $nums[$i]){
+                return 'true.';
+            }
+        }            
+        return 'false.';
     }
 }
 
