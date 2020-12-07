@@ -17,8 +17,7 @@ echo(frontTimes("Chocolate", 3)); // "ChoChoCho"
 echo(frontTimes("Abc", 3)); // "AbcAbcAbc"
 
 
-///////////////////////////////////////////////////
-echo("//////////////////////////////\n");
+echo("//////////2 2 2 2////////////////\n");
 
 // Given a string, return true if the first instance of "x" in the string is immediately followed by another "x".
 
@@ -45,7 +44,7 @@ echo(doubleX("3 Mr. DiMartino's children")); // false
 echo(doubleX("x")); // false
 echo(doubleX("XX")); // ???
 
-echo("////////////////////////////////////////\n");
+echo("/////////////3 3 3 3///////////////////\n");
 
 /*
 Given a string, return a new string made of 
@@ -54,6 +53,7 @@ every other char starting with the first, so "Hello" yields "Hlo".
 
 interface WarmupTools {
     public function stringBits(string $s) : string;
+    public function arrayFront9(array $nums): bool;
 }
 
 class SolutionTools implements WarmupTools {
@@ -69,8 +69,12 @@ class SolutionTools implements WarmupTools {
         }
         return "$oddifiedString\n";
     }
-
+    
+    public function arrayFront9(array $nums): bool{
+        return true;
+    }
 }
+
 
 $solver3 = new SolutionTools();
 
@@ -79,24 +83,29 @@ echo("Oddified ". $solver3->stringBits("Hi")); // "H"
 echo("Oddified ". $solver3->stringBits("Heeololeo")); // "Hello"
 
 
-echo("////////////////////////////////////////\n");
+echo("/////////////4 4 4 4///////////////////\n");
 /*
-                            _           
-                           (_)          
-  _ __ ___  ___ _   _ _ __ ___ ___   _____ 
- | '__/ _ \/ __| | | | '__/ __| \ \ / / _ \
- | | |  __/ (__| |_| | |  \__ \ |\ V /  __/
- |_|  \___|\___|\__,_|_|  |___/_| \_/ \___|
-               
+_           
+(_)          
+_ __ ___  ___ _   _ _ __ ___ ___   _____ 
+| '__/ _ \/ __| | | | '__/ __| \ \ / / _ \
+| | |  __/ (__| |_| | |  \__ \ |\ V /  __/
+|_|  \___|\___|\__,_|_|  |___/_| \_/ \___|
+
 We have triangle made of blocks. The topmost row has 1 block, 
 the next row down has 2 blocks, the next row has 3 blocks, and 
 so on. Compute recursively (no loops or multiplication) the total 
 number of blocks in such a triangle with the given number of rows.
+
+CAVEAT: I'm not sure how to call recursively when this is moved up into an interface and inside of a class.  Am moving on.
 */
 
 // $solver4 = new SolutionTools();
 function triangle(int $n): int{
-    if (1 === $n || 0 === $n){
+    if (0 === $n){
+        return 0;
+    }
+    if (1 === $n){
         return 1;
     }
     $thisLevel = $n;
@@ -107,3 +116,19 @@ function triangle(int $n): int{
 echo(triangle(0)."\n"); // 0  
 echo(triangle(1)."\n"); // 1
 echo(triangle(2)."\n"); // 3 
+
+echo("/////////////////5 5 5 5//////////////\n");
+
+// Given an array of ints, return true if one of the first 4 elements in 
+// the array is a 9. The array length may be less than 4.
+
+$solver5 = new SolutionTools();
+
+
+echo($solver5->arrayFront9([9])."\n"); // true
+echo($solver5->arrayFront9([-9, 9, 9, 3, 4])."\n"); // true
+echo($solver5->arrayFront9([1, 2, 9, 3, 4])."\n"); // true
+echo($solver5->arrayFront9([1, -9, 3, 4, 9])."\n"); // false
+echo($solver5->arrayFront9([1])."\n"); // false
+echo($solver5->arrayFront9([])."\n"); // false
+
