@@ -24,6 +24,11 @@ function stringClean($s){
         $recentChar[] = substr($s, $i, 1);
         // Set flag to T/F  and unload left side of queue
         $justSaw = ( array_shift($recentChar) ===  substr($s, $i, 1));
+        if($justSaw){
+            echo(substr($s, $i, 1)." at $i is familiar \n");
+        } else {
+            echo(substr($s, $i, 1)." at $i is novel \n");
+        }
         // IF YOU JUST SAW THIS A MINUTE AGO 
         //     i++;
         // IF THIS IS UNFAMILIAR, RETURN JUST IT
