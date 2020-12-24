@@ -1,3 +1,17 @@
+<html>
+    <head>
+        <title>Hello</title>
+        <style>
+        body {
+            color: dodgerblue;
+            background-color: darkblue;
+            font-family: monospace;
+            font-size: 3em;
+        }
+        </style>
+    </head>
+    <body>
+<h1><i>Challenges</i></h1>
 <?php
 
 // Given a string and a non-negative int n, we'll say that the front of the string is the first 3 chars, or whatever is there if the string is less than length 3. Return n copies of the front;
@@ -137,3 +151,8 @@ echo($solver5->arrayFront9([1, -9, 3, 4, 9])."\n"); // false
 echo($solver5->arrayFront9([1])."\n"); // false
 echo($solver5->arrayFront9([])."\n"); // false
 
+?>
+
+</body>
+        
+</html>
