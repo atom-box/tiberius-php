@@ -1,12 +1,29 @@
- <!DOCTYPE html>
 <html>
-<body>
+    <head>
+        <title>Hello</title>
+        <style>
+        body {
+            color: dodgerblue;
+            background-color: darkblue;
+            font-family: monospace;
+        }
+        </style>
+    </head>
+    <body>
+        <?php
+        $txt = "PHP";
+        echo "I love $txt!";
+        ?> 
 
-<h1>My first PHP page</h1>
 
-<?php
-echo "Hello World!";
-?>
+        <h1>Hellos.</h1>
+        <h2>
+froggy
+        </h2>
 
-</body>
-</html> 
+<?php echo "questlove"   ?>
+        <h2>
+froggy
+        </h2>
+    </body>
+</html>
