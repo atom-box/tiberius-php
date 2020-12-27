@@ -7,6 +7,21 @@
 
 class BadgeController {
     public function showBadge(int $numericHonorific): int {
-        return 128519;
+        echo "[$numericHonorific]";
+        switch ($numericHonorific) {
+            case 1: 
+                $decimalEmojiCode = 129351;
+                break;
+            case 2: 
+                $decimalEmojiCode = 129352;
+                break;
+            case 3: 
+                $decimalEmojiCode = 129353;
+                break;
+            default:
+                $decimalEmojiCode = 129338;
+        }
+        // return 128519;
+        return $decimalEmojiCode;
     }
 }

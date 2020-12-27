@@ -62,16 +62,14 @@
         ?>
 
         <?php
-        /**
-         *  Use a class.
-         * Include it first.
-         */ 
-
         require $_SERVER['DOCUMENT_ROOT'].'/Controllers/BadgeController.php';
         $emojiBringer = new BadgeController();
-        $badge = $emojiBringer->showBadge(1);
+        $badge1 = $emojiBringer->showBadge(1);
+        $badge2 = $emojiBringer->showBadge(2);
+        $badge3 = $emojiBringer->showBadge(3);
+        $badge4 = $emojiBringer->showBadge(42);
         ?>
-        <p>&#<?=$badge ?>;</p>
+        <p>&#<?=$badge1  ?></p><p>&#<?=$badge2  ?></p><p>&#<?=$badge3  ?>;</p><p>&#<?=$badge4  ?>;</p>
     </code>
 </article>
 </div>
