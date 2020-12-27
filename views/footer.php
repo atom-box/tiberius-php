@@ -1,5 +1,5 @@
 <footer>
-    <p>2020 @ndash; Cruz Azul
+    <p>2020 &#127887;
     <?php 
     $imageCount = 4;
     $i = random_int(1, $imageCount);
