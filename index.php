@@ -60,12 +60,18 @@
                     return $payoff;
                 }
         ?>
-        <?php 
-        echo "&#128512";   ?>
-        <?php 
+
+        <?php
+        /**
+         *  Use a class.
+         * Include it first.
+         */ 
+
         require $_SERVER['DOCUMENT_ROOT'].'/Controllers/BadgeController.php';
-        echo showBadge(1);   
+        $emojiBringer = new BadgeController();
+        $badge = $emojiBringer->showBadge(1);
         ?>
+        <p>&#<?=$badge ?>;</p>
     </code>
 </article>
 </div>
