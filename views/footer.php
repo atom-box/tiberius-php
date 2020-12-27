@@ -6,5 +6,5 @@
     $imagePath = "resources/images/alvin{$i}.png";
     ?>
     <img src="<?= $imagePath ?>" alt="dancer from Alvin Ailey">
-    </p> 
+    </p>
 </footer>
