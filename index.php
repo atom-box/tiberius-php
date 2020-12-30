@@ -38,6 +38,7 @@
         .answer {
             color: #88f;
         }
+
     </style>
 </head>
 
@@ -45,7 +46,6 @@
     <header>
         <h1>Challenges.</h1>
     </header>
-
 
     <article class="codeholder">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/views/chalkboard.php'; ?>
