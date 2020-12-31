@@ -29,15 +29,11 @@ echo "<p class='answer'>".$answer."</p>";
 <?php 
 function redTicket(int $a, int $b, int $c): int {
     $is_null = null;
-    // switch ($nums){
-        //     case : 
-            //         return 33;
-            // }
 
-            $judger = new TicketJudgeController();
-            $payoff = $is_null ?? $judger->scoreTheCombo($a, $b, $c);
+    $judger = new TicketJudgeController();
+    $payoff = $is_null ?? $judger->scoreTheCombo($a, $b, $c);
 
-            return $payoff;
+    return $payoff;
 }
 ?>
 
