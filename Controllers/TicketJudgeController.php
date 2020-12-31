@@ -20,7 +20,13 @@ class TicketJudgeController {
          */
 
         // FIRST PLACE
+        $matchesArray = array_intersect($patternBest, $ticket);
         $matches = count(array_intersect($patternBest, $ticket));
+        echo"<br>";
+        echo('checkgold shows this array ');
+        echo"<br>";
+        echo(var_dump($matchesArray));
+        echo"<br>";
         echo('checkgold matched '.$matches.' ');
         if ( 3 === $matches){ return 1;}
         // SECOND PLACE two ways

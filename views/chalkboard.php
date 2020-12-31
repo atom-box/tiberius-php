@@ -7,23 +7,23 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/Controllers/BadgeController.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/Controllers/TicketJudgeController.php';
 ?>
 
-<p class='question'>redTicket(2, 2, 2) → 10</p>
+<p class='question'>What is the result for redTicket(2, 2, 2) → 10 ?</p>
 <?php 
 $answer = redTicket(2, 2, 2);
-echo "<p class='answer'>".$answer."</p>";
 ?>
+<p class='answer'>The result is: <?= $answer ?></p>
 
-<p class='question'>redTicket(2, 2, 1) → 0</p>
+<p class='question'>What is the result for redTicket(2, 2, 1) → 0 ?</p>
 <?php 
 $answer = redTicket(2, 2, 1);
-echo "<p class='answer'>".$answer."</p>";
 ?>
+<p class='answer'>The result is: <?= $answer ?></p>
 
-<p class='question'>redTicket(0, 0, 0) → 5</p>
+<p class='question'>What is the result for redTicket(0, 0, 0) → 5 ?</p>
 <?php 
 $answer = redTicket(0, 0, 0);
-echo "<p class='answer'>".$answer."</p>";
 ?>
+<p class='answer'>The result is: <?= $answer ?></p>
 
 
 <?php 
