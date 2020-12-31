@@ -3,8 +3,8 @@
 <p class='definition'>You have a red lottery ticket showing ints a, b, and c, each of which is 0, 1, or 2. If they are all the value 2, the result is 10. Otherwise if they are all the same, the result is 5. Otherwise so long as both b and c are different from a, the result is 1. Otherwise the result is 0.</p>
 
 <?php
-require $_SERVER['DOCUMENT_ROOT'].'/Controllers/BadgeController.php';
-require $_SERVER['DOCUMENT_ROOT'].'/Controllers/TicketJudgeController.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/Controllers/BadgeController.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/Controllers/TicketJudgeController.php';
 ?>
 
 <p class='question'>redTicket(2, 2, 2) → 10</p>
@@ -47,5 +47,4 @@ $badge2 = $emojiBringer->showBadge(2);
 $badge3 = $emojiBringer->showBadge(3);
 $badge4 = $emojiBringer->showBadge(42);
 ?>
-<p>&#<?=$badge1  ?></p><p>&#<?=$badge2  ?></p><p>&#<?=$badge3  ?>;</p><p>&#<?=$badge4  ?>;</p>
-</code>
+

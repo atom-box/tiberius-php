@@ -21,6 +21,7 @@
             border-radius: 0.3rem;
             padding: 6px;
             background-color: black;
+            margin: 4rem;
         }
 
         code {
@@ -49,7 +50,10 @@
 
     <article class="codeholder">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/views/chalkboard.php'; ?>
-        ////
+    </article>
+
+    <article class="codeholder">
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/views/chalkboard2.php'; ?>
     </article>
 </div>
 <?php require $_SERVER['DOCUMENT_ROOT'].'/views/footer.php'; ?>
