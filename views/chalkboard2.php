@@ -4,17 +4,24 @@
 </p>
 
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/Controllers/BadgeController.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/Controllers/TicketJudgeController.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/Controllers/ElevenController.php';
+$solver = new ElevenController();
 ?>
 
 
 
 
 <p class='question'>
-specialEleven(22) → true
-specialEleven(23) → true
-specialEleven(24) → false
+<p class='question'>$solver->specialEleven(10) → true </p>
+<p class='answer'>Here's an answer: <?=$solver->specialEleven(10)?></p>
+<p class='question'>$solver->specialEleven(11) → true </p>
+<p class='answer'>Here's an answer: <?=$solver->specialEleven(11)?></p>
+<p class='question'>$solver->specialEleven(22) → true </p>
+<p class='answer'>Here's an answer: <?=$solver->specialEleven(22)?></p>
+<p class='question'>$solver->specialEleven(23) → true </p>
+<p class='answer'>Here's an answer: <?=$solver->specialEleven(23)?></p>
+<p class='question'>$solver->specialEleven(24) → false </p>
+<p class='answer'>Here's an answer: <?=$solver->specialEleven(24)?></p>e
 </p>
 
 <?php 
