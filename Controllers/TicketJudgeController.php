@@ -19,24 +19,23 @@ class TicketJudgeController {
          */
 
         // FIRST PLACE
-        $matchesArray = array_intersect($patternBest, $ticket);
-        $matches = count(array_intersect($patternBest, $ticket));
-        if ( 3 === $matches){ return 1;}
-        // SECOND PLACE two ways
-        $matches = count(array_intersect($patternRunnerUp1 , $ticket));
+        if ( 2 === $a 
+        && 2 === $b 
+        && 2 === $c
+        ){ return 1;}
 
-        if ( 3 === $matches){ return 2;}
-        $matches = count(array_intersect($patternRunnerUp2 , $ticket));
-        if ( 3 === $matches){ return 2;}
+        // SECOND PLACE
+        if ( $b === $a 
+        && $b === $c
+        ){ return 2;}
 
-        // chaining seems not possible. 
-        // this is turning into  reasonable exercise about how to be concise
-        return 345;
+        // THIRD PLACE
+        if ( $b !== $a 
+        && $c !== $a 
+        ){ return 3;}
+
+        // CONSOLE
+        return 999999;
     }
 }
 
-
-// DO THE EVALUATING LOGIC
-// DO THE EVALUATING LOGIC
-// DO THE EVALUATING LOGIC
-// DO THE EVALUATING LOGIC

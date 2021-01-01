@@ -18,7 +18,6 @@ $judger = new TicketJudgeController();
 $answer =  $judger->scoreTheCombo(2, 2, 2);
 $emojiCode = $emojiBringer->showBadge($answer);
 ?>
-<p class='answer'>The result is: <?= $answer ?></p>
 <p class='answer'>The badge is: &#<?= $emojiCode ?></p>
 
 
@@ -28,7 +27,6 @@ $emojiCode = $emojiBringer->showBadge($answer);
 $answer =  $judger->scoreTheCombo(2, 2, 1);
 $emojiCode = $emojiBringer->showBadge($answer);
 ?>
-<p class='answer'>The result is: <?= $answer ?></p>
 <p class='answer'>The badge is: &#<?= $emojiCode ?></p>
 
 
@@ -38,15 +36,4 @@ $emojiCode = $emojiBringer->showBadge($answer);
 $answer =  $judger->scoreTheCombo(0, 0, 0);
 $emojiCode = $emojiBringer->showBadge($answer);
 ?>
-<p class='answer'>The result is: <?= $answer ?></p>
 <p class='answer'>The badge is: &#<?= $emojiCode ?></p>
-
-
-
-
-
-// refactor: add the badge line show in the view.
-// refactor: Move more logic of TicketJudgeController out of the view
-
-
-
