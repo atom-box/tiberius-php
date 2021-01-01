@@ -7,23 +7,34 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/Controllers/BadgeController.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/Controllers/TicketJudgeController.php';
 ?>
 
+<?php
+$emojiBringer = new BadgeController();
+?>
+
+
 <p class='question'>What is the result for redTicket(2, 2, 2) → 10 ?</p>
 <?php 
 $answer = redTicket(2, 2, 2);
 ?>
 <p class='answer'>The result is: <?= $answer ?></p>
+<?php $emojiCode = $emojiBringer->showBadge($answer); ?>
+<p class='answer'>The badge is: &#<?= $emojiCode ?></p>
 
 <p class='question'>What is the result for redTicket(2, 2, 1) → 0 ?</p>
 <?php 
 $answer = redTicket(2, 2, 1);
 ?>
 <p class='answer'>The result is: <?= $answer ?></p>
+<?php $emojiCode = $emojiBringer->showBadge($answer); ?>
+<p class='answer'>The badge is: &#<?= $emojiCode ?></p>
 
 <p class='question'>What is the result for redTicket(0, 0, 0) → 5 ?</p>
 <?php 
 $answer = redTicket(0, 0, 0);
 ?>
 <p class='answer'>The result is: <?= $answer ?></p>
+<?php $emojiCode = $emojiBringer->showBadge($answer); ?>
+<p class='answer'>The badge is: &#<?= $emojiCode ?></p>
 
 
 <?php 
@@ -37,14 +48,8 @@ function redTicket(int $a, int $b, int $c): int {
 }
 ?>
 
+// refactor: add the badge line show in the view.
+// refactor: Move more logic of TicketJudgeController out of the view
 
 
-
-<?php
-$emojiBringer = new BadgeController();
-$badge1 = $emojiBringer->showBadge(1);
-$badge2 = $emojiBringer->showBadge(2);
-$badge3 = $emojiBringer->showBadge(3);
-$badge4 = $emojiBringer->showBadge(42);
-?>
 

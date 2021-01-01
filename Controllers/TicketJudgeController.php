@@ -8,7 +8,6 @@
 class TicketJudgeController {
     function scoreTheCombo(int $a, int $b, int $c): int {
         $ticket = [$a, $b, $c]; // the three lotto numbers
-        var_dump($ticket);
         $patternBest = [2, 2, 2];
         $patternRunnerUp1 = [1, 1, 1];
         $patternRunnerUp2 = [0, 0, 0];
@@ -22,16 +21,10 @@ class TicketJudgeController {
         // FIRST PLACE
         $matchesArray = array_intersect($patternBest, $ticket);
         $matches = count(array_intersect($patternBest, $ticket));
-        echo"<br>";
-        echo('checkgold shows this array ');
-        echo"<br>";
-        echo(var_dump($matchesArray));
-        echo"<br>";
-        echo('checkgold matched '.$matches.' ');
         if ( 3 === $matches){ return 1;}
         // SECOND PLACE two ways
         $matches = count(array_intersect($patternRunnerUp1 , $ticket));
-        echo('checksilver matched '.$matches.' ');
+
         if ( 3 === $matches){ return 2;}
         $matches = count(array_intersect($patternRunnerUp2 , $ticket));
         if ( 3 === $matches){ return 2;}

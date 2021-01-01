@@ -7,7 +7,6 @@
 
 class BadgeController {
     public function showBadge(int $numericHonorific): int {
-        echo "[$numericHonorific]";
         switch ($numericHonorific) {
             case 1: 
                 $decimalEmojiCode = 129351;
