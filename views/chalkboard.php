@@ -9,44 +9,41 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/Controllers/TicketJudgeController.php';
 
 <?php
 $emojiBringer = new BadgeController();
+$judger = new TicketJudgeController();
 ?>
 
 
 <p class='question'>What is the result for redTicket(2, 2, 2) → 10 ?</p>
 <?php 
-$answer = redTicket(2, 2, 2);
+$answer =  $judger->scoreTheCombo(2, 2, 2);
+$emojiCode = $emojiBringer->showBadge($answer);
 ?>
 <p class='answer'>The result is: <?= $answer ?></p>
-<?php $emojiCode = $emojiBringer->showBadge($answer); ?>
 <p class='answer'>The badge is: &#<?= $emojiCode ?></p>
+
+
 
 <p class='question'>What is the result for redTicket(2, 2, 1) → 0 ?</p>
 <?php 
-$answer = redTicket(2, 2, 1);
+$answer =  $judger->scoreTheCombo(2, 2, 1);
+$emojiCode = $emojiBringer->showBadge($answer);
 ?>
 <p class='answer'>The result is: <?= $answer ?></p>
-<?php $emojiCode = $emojiBringer->showBadge($answer); ?>
 <p class='answer'>The badge is: &#<?= $emojiCode ?></p>
+
+
 
 <p class='question'>What is the result for redTicket(0, 0, 0) → 5 ?</p>
 <?php 
-$answer = redTicket(0, 0, 0);
+$answer =  $judger->scoreTheCombo(0, 0, 0);
+$emojiCode = $emojiBringer->showBadge($answer);
 ?>
 <p class='answer'>The result is: <?= $answer ?></p>
-<?php $emojiCode = $emojiBringer->showBadge($answer); ?>
 <p class='answer'>The badge is: &#<?= $emojiCode ?></p>
 
 
-<?php 
-function redTicket(int $a, int $b, int $c): int {
-    $is_null = null;
 
-    $judger = new TicketJudgeController();
-    $payoff = $is_null ?? $judger->scoreTheCombo($a, $b, $c);
 
-    return $payoff;
-}
-?>
 
 // refactor: add the badge line show in the view.
 // refactor: Move more logic of TicketJudgeController out of the view
