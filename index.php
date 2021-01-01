@@ -55,6 +55,10 @@
     <article class="codeholder">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/views/chalkboard2.php'; ?>
     </article>
+
+    <article class="codeholder">
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/views/chalkboard3.php'; ?>
+    </article>
 </div>
 <?php require $_SERVER['DOCUMENT_ROOT'].'/views/footer.php'; ?>
 

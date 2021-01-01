@@ -37,3 +37,4 @@ $answer =  $judger->scoreTheCombo(0, 0, 0);
 $emojiCode = $emojiBringer->showBadge($answer);
 ?>
 <p class='answer'>The badge is: &#<?= $emojiCode ?></p>
+</code>
