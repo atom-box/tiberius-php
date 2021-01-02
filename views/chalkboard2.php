@@ -21,11 +21,7 @@ $solver = new ElevenController();
 <p class='question'>$solver->specialEleven(23) → true </p>
 <p class='answer'>Here's an answer: <?=$solver->specialEleven(23)?></p>
 <p class='question'>$solver->specialEleven(24) → false </p>
-<p class='answer'>Here's an answer: <?=$solver->specialEleven(24)?></p>e
+<p class='answer'>Here's an answer: <?=$solver->specialEleven(24)?></p>
 </p>
-
-<?php 
-echo "<p class='answer'>SOME PHP MAKES ANSWER HERE</p>";
-?>
 
 </code>
