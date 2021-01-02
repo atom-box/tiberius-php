@@ -11,8 +11,23 @@ class ChalkThreeController {
         $ints = $ints ?? ['grandpa'];
         $histogram = array_count_values($ints);
         var_dump($histogram);
-        if (3 === $histogram[3]){return 'true so far';}
+        $foundAdjacents = array_reduce(
+            $ints, 
+            '$this->hasAdjacentThrees'
+        );
+        echo 'string for $FOUNDADJACENTS ['.$foundAdjacents.'] ';
+        if ($foundAdjacents){
+            return " found a couple of threes in there ";
+        }
+        if (3 === $histogram[3]){
+            return 'no adjacents, counted 3 3\'s too';}
         return 'floss';
     }
     
+    public function hasAdjacentThrees($i, $j){
+        if (3 === $i && $i === $j){
+            return 'adjacent-found';
+        } 
+        return ' todo ';
+    }
 }
