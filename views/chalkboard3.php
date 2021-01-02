@@ -14,19 +14,21 @@ $solver = new ChalkThreeController();
 <p class='question'> 
     haveThree([3, 1, 3, 1, 3]) → true
 </p>
-<p class='answer'>Here's an answer: </p>
+<p class='answer'>
+    Here's an answer:
+    <?= $solver->haveThree([3, 1, 3, 1, 3]); ?>
 </p>
 
 <p class='question'> 
-    haveThree([3, 1, 3, 3]) → false
-</p>
-<p class='answer'>Here's an answer: </p>
-</p>
+    haveThree([3, 1, 3
+    , 3]) → false
+    $solver->haveThree();
+    <p class='answer'>Here's an answer: </p>
 
 <p class='question'> 
-    haveThree([3, 4, 3, 3, 4]) → false
-</p>
-<p class='answer'>Here's an answer: </p>
-</p>
+    haveThree([3, 4, 3, 3
+    , 4]) → false
+    $solver->haveThree();
+    <p class='answer'>Here's an answer: </p>
 
 </code>
