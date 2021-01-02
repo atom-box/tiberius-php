@@ -3,20 +3,30 @@
 <p class='definition'></p>
 
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/Controllers/ArrayTwoController.php';
-$solver = new ElevenController();
+require_once $_SERVER['DOCUMENT_ROOT'].'/Controllers/ChalkThreeController.php';
+$solver = new ChalkThreeController();
 ?>
 
+<p class='definition'>
+    <?= $solver->describeChallenge(); ?>
+</p>
 
-
-
-haveThree([3, 1, 3, 1, 3]) → true
-<p class='question'> </p>
+<p class='question'> 
+    haveThree([3, 1, 3, 1, 3]) → true
+</p>
 <p class='answer'>Here's an answer: </p>
 </p>
 
+<p class='question'> 
+    haveThree([3, 1, 3, 3]) → false
+</p>
+<p class='answer'>Here's an answer: </p>
+</p>
+
+<p class='question'> 
+    haveThree([3, 4, 3, 3, 4]) → false
+</p>
+<p class='answer'>Here's an answer: </p>
+</p>
 
 </code>
-
-{# haveThree([3, 1, 3, 3]) → false #}
-{# haveThree([3, 4, 3, 3, 4]) → false #}
