@@ -1,8 +1,13 @@
 # Tiberius Folder
 ## What
 This is my third repository of PHP challenges.
-I keep moving to new local environments and folder hierarchies!
-My focus, as of December 2020, is writing PHPUnit tests.
+I'm working through these:
+* Symfonycasts: writing PHPUnit tests.
+* David Powers PHP 7
+* Symfony's tutorials
+
+And using the challenges from Stanford compsci:
+* codingbat
 
 ## Why Tiberius
 Thre are new Daniel Voshart caesar reconstructions.  
