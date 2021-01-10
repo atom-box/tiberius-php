@@ -1,6 +1,9 @@
 # Tiberius Folder
+## A folder structure and wrapper
+This code generates a simple web page.  Developers who are practicing algorithms and exercises can use this to display their solutions on their local machine in their browser.
 ## How you add code
-If you are maintaining a daily learning routine, like **#100daysOfCode**, you could clone this site and use it as a starting point for your daily messing around. I think the below steps will work if you have php installed and you have cloned this site. Let me know if this site is useful to you. 
+If you are maintaining a daily learning routine, like **#100daysOfCode**, you could clone this site and use it as a starting point for your daily messing around. I think the below steps will work if you have php installed and you have cloned this site. Let me know if this site is useful to you. If you follow these instructions you should end up with a simple page like this in your browser:
+![screenshot of the final result](/home/evan/projects/tiberius-php/resources/images/challenges-screenshot.png) 
 ## How I add code
 In case I come back to this in the future and forget what I'm doing here, my learning routine is:
 1. find online any algorithm coding challenge
@@ -9,7 +12,7 @@ In case I come back to this in the future and forget what I'm doing here, my lea
 4. connect the view file(s) back to **index.php** somehow
 5. styling is currently at the top of index.php
 6. to run it locally: `php -S localhost:8000`
-
+7. to view the page: `http://127.0.0.1:8000/` in Firefox or Safari
 ## Folder structure
 * index.php is at the top level
 * other layouts go in the views folder (these are all children of index.php)
