@@ -1,13 +1,22 @@
 # Tiberius Folder
 ## A folder structure and wrapper
-This code generates a simple web page.  Developers who are practicing algorithms and exercises can use this to display their solutions on their local machine in their browser.
+This code generates a simple web page.  
+![screenshot of the final result](https://raw.githubusercontent.com/atom-box/tiberius-php/master/resources/images/challenges-screenshot.png)
+## Who this is for
+This code doesn't particularly "do" anything except output a static page. Web Developers who are practicing algorithms and exercises or practicing for a job interview can clone and hack this code to display their solutions on their local machine in their browser. <br/>
+For example, folks who are maintaining a #100DaysOfCode might use this as a tree to hang their doodles on.
+Once you have a fork cloned to your local machine, practice your coding routine by adding more:
+* php
+* phpunit (for unit testing)
+* CSS
+* HTML   
+* algorithm solutions (fizz buzz solutions!)
 ## How you add code
-If you are maintaining a daily learning routine, like **#100daysOfCode**, you could clone this site and use it as a starting point for your daily messing around. I think the below steps will work if you have php installed and you have cloned this site. Let me know if this site is useful to you. If you follow these instructions you should end up with a simple page like this in your browser:
-![screenshot of the final result](/home/evan/projects/tiberius-php/resources/images/challenges-screenshot.png) 
-## How I add code
-In case I come back to this in the future and forget what I'm doing here, my learning routine is:
+On your local machine, clone this site and use it as a starting point for your daily messing around. I think the below steps will work if you have php installed and you have cloned this site. Let me know if this site is useful to you. If you follow these instructions you should end up with a simple page like this in your browser:
+ 
+## How to add code
 1. find online any algorithm coding challenge
-2. write a **controller** file. solve the challenge's logic in the controller file
+2. in your local folder, write a **controller** file. solve the challenge's logic in the controller file
 3. write a new **view** file in views to display the controller logic
 4. connect the view file(s) back to **index.php** somehow
 5. styling is currently at the top of index.php
