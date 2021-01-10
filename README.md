@@ -30,7 +30,7 @@ There are also these:
 * tests folder
 * images are in resources/images
 * src folder got sort of forgotten.  these other folders should be under it but they're not
-## Testing
+## How to write tests for the PHP
 Lancecourse has a quickstart list of [how to do a test](https://lancecourse.com/howto/a-quick-intro-to-testing-php-code-with-phpunit).
 1. To install phpunit into the project's vendor/bin, inside the directory you are now in: `composer require --dev phpunit/phpunit`
 2. Make an .xml file, similar to this, which names the directory which phpunit should search to find the tests:
