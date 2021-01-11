@@ -1,17 +1,19 @@
 # Tiberius Folder
-## A folder structure and wrapper
+## All this project does is serve a static page
 This code generates a simple web page.  
 ![screenshot of the final result](https://raw.githubusercontent.com/atom-box/tiberius-php/master/resources/images/challenges-screenshot.png)
+## This is a page for outputting code challenge answers
+This code doesn't particularly "do" anything except output a static page. 
 ## Who this is for
-This code doesn't particularly "do" anything except output a static page. Web Developers who are practicing algorithms and exercises or practicing for a job interview can clone and hack this code to display their solutions on their local machine in their browser. <br/>
-For example, folks who are maintaining a #100DaysOfCode might use this as a tree to hang their doodles on.
+Me mainly. But also for Web Developers who are practicing algorithms and exercises or practicing for a job interview.<br/>
+This is a place to work on Fizz Buzz solutions in a Test-Driven Development (TDD).<br/>
 Once you have a fork cloned to your local machine, practice your coding routine by adding more:
 * php
 * phpunit (for unit testing)
 * CSS
 * HTML   
-* algorithm solutions (fizz buzz solutions!)
-## How you add code
+* algorithms (fizz buzz solutions!)
+## How to get started
 On your local machine, clone this site and use it as a starting point for your daily messing around. I think the below steps will work if you have php installed and you have cloned this site. Let me know if this site is useful to you. If you follow these instructions you should end up with a simple page like this in your browser:
  
 ## How to add code
