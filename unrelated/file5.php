@@ -7,8 +7,7 @@ class foo
 {
     static function staticmethod() {}
 }
-?>
 
 
-// https://www.php.net/manual/en/language.namespaces.basics.php
-// see file2.php in same folder
+echo "Echo from 5";
+// comment from 5

@@ -1,5 +1,5 @@
 <?php
-namespace Foo\Bar;
+namespace brownsville;
 include 'file1.php';
 
 const FOO = 2;
@@ -31,7 +31,7 @@ echo "\n\n";
 // \Foo\Bar\foo::staticmethod(); // resolves to class Foo\Bar\foo, method staticmethod
 echo "\n\n";
 echo "Say the long two words, resolves to here again: 2\n";
-echo \Foo\Bar\FOO; // resolves to constant Foo\Bar\FOO
+echo \brownsville\FOO; // resolves to constant Foo\Bar\FOO
 echo "\n\n";
 
 //  https://www.php.net/manual/en/language.namespaces.basics.php 
