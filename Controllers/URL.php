@@ -1,6 +1,7 @@
 <?php
+namespace tiberius\tests;
 
-// namespace phpUnitTutorial;
+// constant JACK = 33;
 
 class URL
 {
