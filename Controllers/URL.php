@@ -1,6 +1,6 @@
 <?php
 
-namespace phpUnitTutorial;
+// namespace phpUnitTutorial;
 
 class URL
 {
@@ -19,4 +19,11 @@ class URL
     }
 }
 
-comment up the algorithm 
+$slugger = new URL();
+$dirty = 'Pizza, cheesy pizza, from the tip of YOUR-HAT (wait for it) 2 the top of your !@#$%^&*() toes!';
+$clean = $slugger->sluggify($dirty);
+
+echo "\n".'madam? '."\n";
+echo "And now the title before/after: \n";
+echo $dirty."\n";
+echo $clean."\n";
