@@ -7,18 +7,48 @@ require 'Controllers/constants.php';
 require 'Controllers/URL.php';
 class URLtest extends TestCase
 {
-    public function testSluggifyReturnsSluggifiedString(){
-        echo "\n______I am ".CHEW."\n"; 
-        echo "\n______I am ".CUD."\n"; 
+    public function testStringEndsAreNotDashed(){
         $urlTools = new URL();
-
-        $originalString = '1. this string will be sluggified!! !'; 
-        $expectedResult = '1-this-string-will-be-sluggified';
+        
+        // $originalString = '1. this string will be sluggified!! !'; 
+        $originalString = '-1 bad mf-'; 
+        $expectedResult = '1-bad-mf';
         $output = $urlTools->sluggify($originalString);
         $this->assertSame($expectedResult, $output);
     }
+
+    public function testSixteenNastySymbolsAreIgnored(){
+        $urlTools = new URL();
+        
+        $originalString = 'dog(~!@#$%^&*()_+)?wing?'; 
+        $expectedResult = 'dog-wing';
+        $output = $urlTools->sluggify($originalString);
+        $this->assertSame($expectedResult, $output);
+    }
+
+
+    public function testTurkishLetters(){
+        $urlTools = new URL();
+        
+        $originalString = 'Nerede, bir köprünün altında?'; 
+        $expectedResult = 'Nerede-bir-köprünün-altında';
+        $output = $urlTools->sluggify($originalString);
+        $this->assertSame($expectedResult, $output);
+    }
+
+    public function testPhoneNumber(){
+        $urlTools = new URL();
+        
+        $originalString = '465-3958'; 
+        $expectedResult = '465-3958';
+        $output = $urlTools->sluggify($originalString);
+        $this->assertSame($expectedResult, $output);
+    }
+
 }
 
+echo "\n______I am ".CHEW."\n"; 
+echo "\n______I am ".CUD."\n"; 
 /**
  * Lessons learned:
  * 1) You forgot that phpunit.xml crucially points to locations
