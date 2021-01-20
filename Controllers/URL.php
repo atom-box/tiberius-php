@@ -7,6 +7,14 @@ class URL
 {
     public function sluggify($string, $separator = '-', $maxLength = 96)
     {
+        // if('' === $string){
+        //     return '';
+        // }
+
+        
+        // if(null === $string){
+        //     return '';
+        // }
         // VERY RIGOROUS we are standardizing the char set
         $title = iconv('UTF-8', 'ASCII//TRANSLIT', $string);
         // seems to be taking out too much of symbols

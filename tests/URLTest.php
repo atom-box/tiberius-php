@@ -30,11 +30,19 @@ class URLtest extends TestCase
     public function testTurkishLetters(){
         $urlTools = new URL();
         
-        $originalString = 'Nerede, bir köprünün altında?'; 
-        $expectedResult = 'Nerede-bir-köprünün-altında';
+        $originalString = 'Türkçe, bir köprünün altında?'; 
+        $expectedResult = 'Türkçe-bir-köprünün-altında';
         $output = $urlTools->sluggify($originalString);
         $this->assertSame($expectedResult, $output);
     }
+
+    public function testFetchFrenchDoctor(){
+        $urlTools = new URL();
+        $originalString = '1 médecin français, vite!';
+        $expectedResult = '1-médecin-français-vite';
+        $output = $urlTools->sluggify($originalString);
+        $this->assertSame($expectedResult, $output);
+    }   
 
     public function testPhoneNumber(){
         $urlTools = new URL();
@@ -43,6 +51,23 @@ class URLtest extends TestCase
         $expectedResult = '465-3958';
         $output = $urlTools->sluggify($originalString);
         $this->assertSame($expectedResult, $output);
+    }
+
+    public function testInputIsEmptyString(){
+        $urlTools = new URL();
+        $originalString = '';
+        $expectedResult = '';
+        $output = $urlTools->sluggify($originalString);
+        $this->assertSame($expectedResult, $output);
+    }
+
+    public function testInputIsNull(){
+        $urlTools = new URL();
+        $originalString = null;
+        $expectedResult = '';
+        $output = $urlTools->sluggify($originalString);
+        $this->assertSame($expectedResult, $output);
+        // TODO CHANGE TEST TO does not explode instead
     }
 
 }
