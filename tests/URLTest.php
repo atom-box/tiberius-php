@@ -1,6 +1,8 @@
 <?php
 namespace tiberius\tests;
 
+// Refactor repetitive testing into DataProvider pattern.
+
 use PHPUnit\Framework\TestCase;
 // require '../Controllers/constants.php';
 require 'Controllers/constants.php';
@@ -70,10 +72,29 @@ class URLtest extends TestCase
         // TODO CHANGE TEST TO does not explode instead
     }
 
+
+ /**
+  * @param string $originalString
+  * @param string $expectedString
+  * 
+  * @dataProvider provideSlugging
+  */
+
+  public function testSluggifyReturnsSluggifiedString( $originalString, $expectedString){
+      //
+  }
+
+  public function provideSlugging(){
+      return array(
+        array('-1 bad mf-', '1-bad-mf'),
+        array('dog(~!@#$%^&*()_+)?wing?', 'dog-wing'),
+        array('Türkçe, bir köprünün altında?', 'Türkçe-bir-köprünün-altında'),
+      );
+  }
+
+
 }
 
-echo "\n______I am ".CHEW."\n"; 
-echo "\n______I am ".CUD."\n"; 
 /**
  * Lessons learned:
  * 1) You forgot that phpunit.xml crucially points to locations
@@ -83,3 +104,4 @@ echo "\n______I am ".CUD."\n";
  * 5) The sibling to your containing folder does not get a double dot.  The folder path naming assumes a starting point of the damn project root. So if you are in root/BROTHER, you call with REQUIRE 'SISTER/url.php'.
  * 
  */
+

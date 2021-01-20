@@ -1,20 +1,19 @@
 <?php
 namespace tiberius\tests;
 
-// constant JACK = 33;
-
 class URL
 {
     public function sluggify($string, $separator = '-', $maxLength = 96)
     {
+        // todo NEITHER if DOES ANYTHING!  ??s
         // if('' === $string){
         //     return '';
         // }
 
         
-        // if(null === $string){
-        //     return '';
-        // }
+        if(null === $string){
+            return '';
+        }
         // VERY RIGOROUS we are standardizing the char set
         $title = iconv('UTF-8', 'ASCII//TRANSLIT', $string);
         // seems to be taking out too much of symbols
@@ -28,11 +27,4 @@ class URL
     }
 }
 
-// $slugger = new URL();
-// $dirty = 'Pizza, cheesy pizza, from the tip of YOUR-HAT (wait for it) 2 the top of your !@#$%^&*() toes!';
-// $clean = $slugger->sluggify($dirty);
-
-// echo "\n".'madam? '."\n";
-// echo "And now the title before/after: \n";
-// echo $dirty."\n";
-// echo $clean."\n";
+//  #TIL echo statements down here will run. Outside of class.
