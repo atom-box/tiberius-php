@@ -1,30 +1,48 @@
 <?php
-echo("///////////// 1  1  1  1 ///////////////////\n");
-echo("///////////// Find things ///////////////////\n");
-
 
 interface ReggieTools {
+    // given a mongo-ish string, return the 3 most frequent as an assoc array (string word => integer count)
     public function findCommons(string $dataString): array;
+
+    // todo a second function here 
+    // look at front given a string and a string prefix, returns a boolean for presence of prefix
 }
 
-class StringTools implements ReggieTools {
+interface ParagraphHandler {
+    // given an array of strings, return a mongo string
+    public function mush(array $lines): string;
+}
+
+class Histograms implements ReggieTools, ParagraphHandler {
     public function findCommons(string $dataString): array {
-        return [];
+        $histofied = [
+            'apple' => 2,
+            'bear' => 1,
+            'tree' => 5,
+        ]; // todo delete this mock
+        
+        return $histofied;
     }
-    // do a this somewhere in here
+
+    public function mush(array $lines): string{
+        $theMush = '';
+        foreach($lines as $line){
+            $theMush .= $line;
+        }
+        return $theMush;
+    }
+    
+
 }
 
-$solver1 = new StringTools(); 
+$solver1 = new Histograms(); 
 
-$data = "It is more important to know where you are going than to get there quickly. Do not mistake activity for achievement."; // Isocrates;
-$findings = [];
+$data1 = "It is more important to know where you";
+$data2 = " are going than to get there quickly. Do";
+$data3 = " not mistake activity for achievement.";
+$data4 = "Isocrates";
 
-
- /*
-
-$solver3 = new SolutionTools();
-
-echo("Oddified ". $solver3->stringBits("Hello")); // "Hlo"
-echo("Oddified ". $solver3->stringBits("Hi")); // "H"
-echo("Oddified ". $solver3->stringBits("Heeololeo")); // "Hello"
-*/
+echo "\n";
+echo $solver1->mush([$data1, $data2, $data3, $data4 ]);
+echo "\n";
+// Todo WRITE A TEST CLASS FOR THIS ABOVE LINES
