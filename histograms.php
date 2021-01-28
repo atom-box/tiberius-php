@@ -20,11 +20,16 @@ interface ParagraphHandler {
 
 class Histograms implements ReggieTools, ParagraphHandler {
     public function findCommons(string $dataString): array {
-        $histofied = [
-            'apple' => 2,
-            'bear' => 1,
-            'tree' => 5,
-        ]; // todo delete this mock
+        // string to array tokens
+        // use function php array_count_values
+
+        $tokens = explode(' ', $dataString);
+        $histofied = array_count_values($tokens);
+        // $histofied = [
+        //     'apple' => 2,
+        //     'bear' => 1,
+        //     'tree' => 5,
+        // ]; // todo delete this mock
         
         return $histofied;
     }
@@ -40,13 +45,17 @@ class Histograms implements ReggieTools, ParagraphHandler {
     public function duuump(array $list): void{
         var_dump($list);
     }
+
+    // needs trimming of the punctuation
+    // needs sorting
+    // eventually a X's sideways histogram
 }
 
 $solver1 = new Histograms(); 
 
 $data1 = "It is more important to know where you";
 $data2 = " are going than to get there quickly. Do";
-$data3 = " not mistake activity for achievement.";
+$data3 = " and then and then and no but yes and no at the same time, not the opposite but the no.";
 $data4 = " -Isocrates";
 
 echo "\n";
