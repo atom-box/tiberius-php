@@ -1,13 +1,22 @@
 <?php
 
 interface checks {
-    public function gapSame(int $a, int $b, int $c): string;
-    public function notAlone(array $a, int $n): string; 
+    public function gapSame(): string;
+    public function notAlone(): string; 
 }
 
 class NumberLine implements checks {
-    public function gapSame(int $a, int $b, int $c): string{
-        $sorted = [$a, $b, $c];
+    function __construct(array $numbers)
+    {
+        $this->numbers = $numbers;
+    }
+
+    public function gapSame(): string{
+        if (count($this->numbers) !== 3){
+            die('ERROR: gapSame function requires the array must have three numbers.');
+        }
+
+        $sorted = $this->numbers;
         sort($sorted);
         $small = $sorted[0];
         $medium = $sorted[1];
@@ -18,23 +27,41 @@ class NumberLine implements checks {
         
         return 'it\'s nahhht Scottish';
     }
+    
+        protected function isAlone($i): bool{
+            return true;
+        } 
+        protected function getHighestNeighbor($i): int{
+            return 33;
+        }
 
-    public function notAlone(array $a, int $n): string{
+    public function notAlone(): string{
         // some code here
         // var_dump($a);
-
-        $joined = implode(' ', $a);
+        $fixed = [];
+        $last = count($this->numbers) - 1;
+        foreach($this->numbers as $i => $member){
+            if($i === 0 || $i === $last){
+                $fixed[] = $member;
+                continue;
+            }
+            if($this->isAlone($member)){
+                $fixed[] = $this->getHighestNeighbor($i);
+            }
+        }
+        $joined = implode(' ', $fixed);
         return $joined;
     }
+
 }
 
-$tool = new Numberline();
-
-echo "\n".$tool->gapSame(2, 4, 6); // true
-echo "\n".$tool->gapSame(4, 6, 2); // true
-echo "\n".$tool->gapSame(4, 6, 3); // false
+$tool = new Numberline([2, 4, 6]);
+echo "\n".$tool->gapSame(); // true
+$tool = new Numberline([4, 6, 2]);
+echo "\n".$tool->gapSame(); // true
+$tool = new Numberline([4, 6, 3]);
+echo "\n".$tool->gapSame(); // false
 echo "\n\n";
-
 
 echo "\n".$tool->notAlone([1, 2, 3], 2)."\n"; // [1, 3, 3]
 echo "\n".$tool->notAlone([1, 2, 3, 2, 5, 2], 2)."\n"; // [1, 3, 3, 5, 5, 2]
