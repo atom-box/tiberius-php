@@ -29,17 +29,33 @@ class NumberLine implements checks {
         return 'it\'s nahhht Scottish';
     }
     
-        protected function dominatedByWhichNeighbor($i): bool{
-            return 91;
-            // return null;
-        } 
-        protected function getHighestNeighbor($i): int{
-            return 33;
+    protected function dominatedByWhichNeighbor($i): bool{
+        $a = $this->numbers[$i - 1];
+        $b = $this->numbers[$i];
+        $c = $this->numbers[$i + 1];
+        if ($a === $b || $b === $c){
+            echo "+++ $b has a neighbor n";
+            return null;
         }
+        echo "+++ $a not equal $b and $b not equal $c\n";
+        if ($a >= $c){
+            echo "::: $a dominates over $c\n";
+            return $a;
+        }
+        if ($a <  $c){
+            echo "::: $a loses to $c\n";
+            echo "RETURN THIS $c\n";
+            return $c;
+        }
+        // something actually went wrong; fail gracefully
+        return null; 
+    } 
 
     public function notAlone(): string{
-        // some code here
-        // var_dump($a);
+        echo "\n\n=========\n";
+        var_dump($this->numbers);
+        var_dump($this->needle);
+        echo "=========\n";
         $fixed = [];
         $indexLast = count($this->numbers) - 1;
         foreach($this->numbers as $i => $member){
@@ -49,9 +65,11 @@ class NumberLine implements checks {
             }
             if($this->needle){
                 $theDominatingNeighbor = $this->dominatedByWhichNeighbor($i);
+                echo "Adding now the dominant neighbor: $theDominatingNeighbor\n";
                 if($theDominatingNeighbor){
                     $fixed[] = $theDominatingNeighbor;
                 }    
+                continue;
             }
             $fixed[] = $member;
         }
