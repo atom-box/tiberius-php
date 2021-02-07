@@ -6,9 +6,10 @@ interface checks {
 }
 
 class NumberLine implements checks {
-    function __construct(array $numbers)
+    function __construct(array $numbers, ?int $needle = null)
     {
         $this->numbers = $numbers;
+        $this->needle = $needle;
     }
 
     public function gapSame(): string{
@@ -28,8 +29,9 @@ class NumberLine implements checks {
         return 'it\'s nahhht Scottish';
     }
     
-        protected function isAlone($i): bool{
-            return true;
+        protected function dominatedByWhichNeighbor($i): bool{
+            return 91;
+            // return null;
         } 
         protected function getHighestNeighbor($i): int{
             return 33;
@@ -39,15 +41,19 @@ class NumberLine implements checks {
         // some code here
         // var_dump($a);
         $fixed = [];
-        $last = count($this->numbers) - 1;
+        $indexLast = count($this->numbers) - 1;
         foreach($this->numbers as $i => $member){
-            if($i === 0 || $i === $last){
+            if($i === 0 || $i === $indexLast){
                 $fixed[] = $member;
                 continue;
             }
-            if($this->isAlone($member)){
-                $fixed[] = $this->getHighestNeighbor($i);
+            if($this->needle){
+                $theDominatingNeighbor = $this->dominatedByWhichNeighbor($i);
+                if($theDominatingNeighbor){
+                    $fixed[] = $theDominatingNeighbor;
+                }    
             }
+            $fixed[] = $member;
         }
         $joined = implode(' ', $fixed);
         return $joined;
@@ -56,16 +62,19 @@ class NumberLine implements checks {
 }
 
 $tool = new Numberline([2, 4, 6]);
-echo "\n".$tool->gapSame(); // true
+echo "\nGap same: ".$tool->gapSame(); // true
 $tool = new Numberline([4, 6, 2]);
-echo "\n".$tool->gapSame(); // true
+echo "\nGap same: ".$tool->gapSame(); // true
 $tool = new Numberline([4, 6, 3]);
-echo "\n".$tool->gapSame(); // false
+echo "\nGap same: ".$tool->gapSame(); // false
 echo "\n\n";
 
-echo "\n".$tool->notAlone([1, 2, 3], 2)."\n"; // [1, 3, 3]
-echo "\n".$tool->notAlone([1, 2, 3, 2, 5, 2], 2)."\n"; // [1, 3, 3, 5, 5, 2]
-echo "\n".$tool->notAlone([3, 4], 3)."\n"; // [3, 4]
+$tool = new Numberline([1, 2, 3], 2);
+echo "\nAlone: ".$tool->notAlone()."\n"; // [1, 3, 3]
+$tool = new Numberline([1, 2, 3, 2, 5, 2], 2);
+echo "\nAlone: ".$tool->notAlone()."\n"; // [1, 3, 3, 5, 5, 2]
+$tool = new Numberline([3, 4], 3);
+echo "\nAlone: ".$tool->notAlone()."\n"; // [3, 4]
 
 /*
 GAPSAME FUNCTION
