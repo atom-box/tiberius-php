@@ -34,18 +34,12 @@ class NumberLine implements checks {
         $b = $this->numbers[$i];
         $c = $this->numbers[$i + 1];
         if ($a === $b || $b === $c){
-            echo "+++ $b has a neighbor n";
             return null;
         }
-        echo "+++ $a not equal $b and $b not equal $c\n";
         if ($a >=  $c){
-            echo "::: $a defeats $c\n";
-            echo "RETURN THIS $a\n";
             return $a;
         }
         if ($a <  $c){
-            echo "::: $a loses to $c\n";
-            echo "RETURN THIS $c\n";
             return $c;
         }
         // something actually went wrong; fail gracefully
@@ -53,10 +47,6 @@ class NumberLine implements checks {
     } 
 
     public function notAlone(): string{
-        echo "\n\n=========\n";
-        var_dump($this->numbers);
-        var_dump($this->needle);
-        echo "=========\n";
         $fixed = [];
         $indexLast = count($this->numbers) - 1;
         foreach($this->numbers as $i => $member){
@@ -65,10 +55,7 @@ class NumberLine implements checks {
                 continue;
             }
             if($this->needle){
-                echo "BEFORE to call on INDEX: $i\n";
                 $theDominatingNeighbor = $this->dominatedByWhichNeighbor($i);
-                echo "AFTER to call on INDEX: $i\n";
-                echo "Adding now the dominant neighbor: $theDominatingNeighbor\n";
                 if($theDominatingNeighbor){
                     $fixed[] = $theDominatingNeighbor;
                 }    
