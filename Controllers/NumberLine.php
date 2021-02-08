@@ -29,7 +29,7 @@ class NumberLine implements checks {
         return 'it\'s nahhht Scottish';
     }
     
-    protected function dominatedByWhichNeighbor($i): bool{
+    protected function dominatedByWhichNeighbor($i): int{
         $a = $this->numbers[$i - 1];
         $b = $this->numbers[$i];
         $c = $this->numbers[$i + 1];
@@ -38,8 +38,9 @@ class NumberLine implements checks {
             return null;
         }
         echo "+++ $a not equal $b and $b not equal $c\n";
-        if ($a >= $c){
-            echo "::: $a dominates over $c\n";
+        if ($a >=  $c){
+            echo "::: $a defeats $c\n";
+            echo "RETURN THIS $a\n";
             return $a;
         }
         if ($a <  $c){
@@ -64,7 +65,9 @@ class NumberLine implements checks {
                 continue;
             }
             if($this->needle){
+                echo "BEFORE to call on INDEX: $i\n";
                 $theDominatingNeighbor = $this->dominatedByWhichNeighbor($i);
+                echo "AFTER to call on INDEX: $i\n";
                 echo "Adding now the dominant neighbor: $theDominatingNeighbor\n";
                 if($theDominatingNeighbor){
                     $fixed[] = $theDominatingNeighbor;
