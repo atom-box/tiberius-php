@@ -12,6 +12,7 @@ class NumberLine implements checks {
         $this->needle = $needle;
     }
 
+    // Checks if numbers are evenly spaced
     public function gapSame(): string{
         if (count($this->numbers) !== 3){
             die('ERROR: gapSame function requires the array must have three numbers.');
@@ -29,6 +30,7 @@ class NumberLine implements checks {
         return 'it\'s nahhht Scottish';
     }
     
+    // Checks (1) no matching neighbor (2) replace w/ large neighbor
     protected function dominatedByWhichNeighbor($i): int{
         $a = $this->numbers[$i - 1];
         $b = $this->numbers[$i];
@@ -78,11 +80,11 @@ echo "\nGap same: ".$tool->gapSame(); // false
 echo "\n\n";
 
 $tool = new Numberline([1, 2, 3], 2);
-echo "\nAlone: ".$tool->notAlone()."\n"; // [1, 3, 3]
+echo "Alone: ".$tool->notAlone()."\n"; // [1, 3, 3]
 $tool = new Numberline([1, 2, 3, 2, 5, 2], 2);
-echo "\nAlone: ".$tool->notAlone()."\n"; // [1, 3, 3, 5, 5, 2]
+echo "Alone: ".$tool->notAlone()."\n"; // [1, 3, 3, 5, 5, 2]
 $tool = new Numberline([3, 4], 3);
-echo "\nAlone: ".$tool->notAlone()."\n"; // [3, 4]
+echo "Alone: ".$tool->notAlone()."\n"; // [3, 4]
 
 /*
 GAPSAME FUNCTION
