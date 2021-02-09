@@ -3,6 +3,7 @@
 interface checks {
     public function gapSame(): string;
     public function notAlone(): string; 
+    public function timelapse(): int;
 }
 
 class NumberLine implements checks {
@@ -69,6 +70,11 @@ class NumberLine implements checks {
         return $joined;
     }
 
+    // find diff between first and second date in an array
+    public function timelapse(): int{
+        return 333;
+    }
+
 }
 
 $tool = new Numberline([2, 4, 6]);
@@ -85,6 +91,18 @@ $tool = new Numberline([1, 2, 3, 2, 5, 2], 2);
 echo "Alone: ".$tool->notAlone()."\n"; // [1, 3, 3, 5, 5, 2]
 $tool = new Numberline([3, 4], 3);
 echo "Alone: ".$tool->notAlone()."\n"; // [3, 4]
+echo "\n";
+
+$date1 = date_create('2021-02-09');
+$date2 = date_create('2021-01-06');
+$date3 = time();
+$date4 = mktime(3, 4, 5, 6, 7, 2020);
+$calendar = new Numberline([$date1, $date2]);
+echo "Timelapse: ".$calendar->timelapse()."\n"; 
+$trythis = [$date1, $date2, $date3, $date4 ];
+var_dump($trythis);
+echo "\n";
+
 
 /*
 GAPSAME FUNCTION
