@@ -4,6 +4,7 @@ interface checks {
     public function gapSame(): string;
     public function notAlone(): string; 
     public function timelapse(): int;
+    public function roundThenSum(): int;
 }
 
 class NumberLine implements checks {
@@ -12,13 +13,13 @@ class NumberLine implements checks {
         $this->numbers = $numbers;
         $this->needle = $needle;
     }
-
+    
     // Checks if numbers are evenly spaced
     public function gapSame(): string{
         if (count($this->numbers) !== 3){
             die('ERROR: gapSame function requires the array must have three numbers.');
         }
-
+        
         $sorted = $this->numbers;
         sort($sorted);
         $small = $sorted[0];
@@ -48,7 +49,7 @@ class NumberLine implements checks {
         // something actually went wrong; fail gracefully
         return null; 
     } 
-
+    
     public function notAlone(): string{
         $fixed = [];
         $indexLast = count($this->numbers) - 1;
@@ -70,11 +71,16 @@ class NumberLine implements checks {
         return $joined;
     }
 
+    public function roundThenSum(): int{
+        return 999;
+    }
+
     // find diff between first and second date in an array
     public function timelapse(): int{
         return 333;
     }
-
+    
+    
 }
 
 $tool = new Numberline([2, 4, 6]);
@@ -103,6 +109,12 @@ $trythis = [$date1, $date2, $date3, $date4 ];
 var_dump($trythis);
 echo "\n";
 
+$hopper = new Numberline([16, 17, 18]);
+echo "Roundthensum: ".$hopper->roundThenSum()."\n"; // 60
+$hopper = new Numberline([12, 13, 14]);
+echo "Roundthensum: ".$hopper->roundThenSum()."\n"; // 30
+$hopper = new Numberline([6, 4, 4]);
+echo "Roundthensum: ".$hopper->roundThenSum()."\n"; // 10
 
 /*
 GAPSAME FUNCTION
@@ -118,6 +130,12 @@ small and medium is the same as the difference between medium and large.
   a version of the given array where every instance of the given value 
   which is alone is replaced by whichever value to its left or right \
   is larger.
-
-
  */
+
+ /**
+ ROUNDTHENSUM FUNCTION
+* round an int value up to the next multiple of 10 if its rightmost digit is 5 or more, 
+so 15 rounds up to 20. Alternately, round down to the previous multiple of 10 if 
+its rightmost digit is less than 5, so 12 rounds down to 10. Given an array of ints 
+return the sum of their rounded values.
+  */
