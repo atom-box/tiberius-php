@@ -72,7 +72,31 @@ class NumberLine implements checks {
     }
 
     public function roundThenSum(): int{
-        return 999;
+        $sum = 0;
+        foreach($this->numbers as $number){
+            if ($this->intWantsUp($number)){
+                $sum += $this->roundUp($number);
+            }
+            $sum += $this->roundDown($number);
+        }
+        return $sum;
+    }
+
+    private function roundUp(int $n): int{
+        $tens = $n % 10;
+        return 10 * ($tens + 1);
+    }
+
+    private function roundDown(int $n): int{
+        $tens = $n % 10;
+        return 10 * ($tens + 1);
+    }
+    
+    private function intWantsUp(int $n): bool{
+        return true; // todo
+        return true; // todo
+        return true; // todo
+        return true; // todo
     }
 
     // find diff between first and second date in an array
