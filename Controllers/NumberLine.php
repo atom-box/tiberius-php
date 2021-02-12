@@ -73,9 +73,12 @@ class NumberLine implements checks {
 
     public function roundThenSum(): int{
         $sum = 0;
+
+        echo "\nFor this number line: ".implode('-', $this->numbers)."\n";
         foreach($this->numbers as $number){
             if ($this->intWantsUp($number)){
                 $sum += $this->roundUp($number);
+                continue;
             }
             $sum += $this->roundDown($number);
         }
@@ -83,20 +86,22 @@ class NumberLine implements checks {
     }
 
     private function roundUp(int $n): int{
-        $tens = $n % 10;
-        return 10 * ($tens + 1);
+        $tens = $n / 10;
+        $tens = ceil($tens);
+        return 10 * $tens;
     }
 
     private function roundDown(int $n): int{
-        $tens = $n % 10;
-        return 10 * ($tens + 1);
+        $tens = $n / 10;
+        $tens = floor($tens);
+        return 10 * $tens;
     }
     
     private function intWantsUp(int $n): bool{
-        return true; // todo
-        return true; // todo
-        return true; // todo
-        return true; // todo
+        if($n % 10 > 4){
+            return true;
+        }
+        return false; 
     }
 
     // find diff between first and second date in an array
@@ -133,6 +138,12 @@ $trythis = [$date1, $date2, $date3, $date4 ];
 var_dump($trythis);
 echo "\n";
 
+$hopper = new Numberline([16]);
+echo "Roundthensum: ".$hopper->roundThenSum()."\n"; // 60
+$hopper = new Numberline([29]);
+echo "Roundthensum: ".$hopper->roundThenSum()."\n"; // 30
+$hopper = new Numberline([9]);
+echo "Roundthensum: ".$hopper->roundThenSum()."\n"; // 10
 $hopper = new Numberline([16, 17, 18]);
 echo "Roundthensum: ".$hopper->roundThenSum()."\n"; // 60
 $hopper = new Numberline([12, 13, 14]);
