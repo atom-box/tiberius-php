@@ -3,7 +3,7 @@
 interface checks {
     public function gapSame(): string;
     public function notAlone(): string; 
-    public function timelapse(): int;
+    // public function timelapse(): int;
     public function roundThenSum(): int;
 }
 
@@ -85,6 +85,21 @@ class NumberLine implements checks {
         return $sum;
     }
 
+// find diffs between dates of an array of INTS that are unixtime
+    // return years as a single string of all the years as ints
+
+    public function unixtimelapse(array $numbers): string {
+        if (count($numbers) < 2){
+            return implode(' ', $numbers );
+        }
+        $oneTime = array_shift($numbers);
+        $diff = abs($oneTime - $numbers[0]); 
+        $diff = (string)$diff;
+
+        return $diff.$this->unixtimelapse($numbers);
+    }
+
+
     private function roundUp(int $n): int{
         $tens = $n / 10;
         $tens = ceil($tens);
@@ -104,10 +119,6 @@ class NumberLine implements checks {
         return false; 
     }
 
-    // find diff between first and second date in an array
-    public function timelapse(): int{
-        return 333;
-    }
     
     
 }
@@ -128,28 +139,29 @@ $tool = new Numberline([3, 4], 3);
 echo "Alone: ".$tool->notAlone()."\n"; // [3, 4]
 echo "\n";
 
-$date1 = date_create('2021-02-09');
-$date2 = date_create('2021-01-06');
-$date3 = time();
-$date4 = mktime(3, 4, 5, 6, 7, 2020);
-$calendar = new Numberline([$date1, $date2]);
-echo "Timelapse: ".$calendar->timelapse()."\n"; 
-$trythis = [$date1, $date2, $date3, $date4 ];
-var_dump($trythis);
-echo "\n";
-
 $hopper = new Numberline([16]);
-echo "Roundthensum: ".$hopper->roundThenSum()."\n"; // 60
-$hopper = new Numberline([29]);
-echo "Roundthensum: ".$hopper->roundThenSum()."\n"; // 30
-$hopper = new Numberline([9]);
-echo "Roundthensum: ".$hopper->roundThenSum()."\n"; // 10
-$hopper = new Numberline([16, 17, 18]);
 echo "Roundthensum: ".$hopper->roundThenSum()."\n"; // 60
 $hopper = new Numberline([12, 13, 14]);
 echo "Roundthensum: ".$hopper->roundThenSum()."\n"; // 30
 $hopper = new Numberline([6, 4, 4]);
 echo "Roundthensum: ".$hopper->roundThenSum()."\n"; // 10
+
+$date1 = date_create('2021-02-09');
+$date2 = date_create('2021-01-06');
+$date3 = time();
+$date4 = mktime(3, 4, 5, 6, 7, 2020);
+$calendar = new Numberline([$date1, $date2]);
+// // echo "Timelapse: ".$calendar->timelapse()."\n"; 
+$trythis = [$date1, $date2, $date3, $date4 ];
+// UNCOMMENT THIS TO SEE THE DATE OBJECTS
+// var_dump($trythis);
+echo "\n";
+
+$times = new NumberLine([3,6000]); // will this blow up if called with zero args?
+echo "Unixtimelapse: ".$times->unixtimelapse([1813321467, 1613321467, 1003321467, 613321467, 613321000])."\n";
+
+
+
 
 /*
 GAPSAME FUNCTION
