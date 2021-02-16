@@ -85,18 +85,18 @@ class NumberLine implements checks {
         return $sum;
     }
 
-// find diffs between dates of an array of INTS that are unixtime
-    // return years as a single string of all the years as ints
-
+    // given an array of INTS that are unixtime
+    // returns gap between each member and its neighbor, in years
     public function unixtimelapse(array $numbers): string {
         if (count($numbers) < 2){
-            return implode(' ', $numbers );
+            return '';
         }
         $oneTime = array_shift($numbers);
         $diff = abs($oneTime - $numbers[0]); 
+        $yearlong = $diff / 31536000000;
         $diff = (string)$diff;
 
-        return $diff.$this->unixtimelapse($numbers);
+        return $yearlong.' years, '.$this->unixtimelapse($numbers);
     }
 
 
@@ -157,7 +157,7 @@ $trythis = [$date1, $date2, $date3, $date4 ];
 // var_dump($trythis);
 echo "\n";
 
-$times = new NumberLine([3,6000]); // will this blow up if called with zero args?
+$times = new NumberLine([]); // safe to call php with less than args
 echo "Unixtimelapse: ".$times->unixtimelapse([1813321467, 1613321467, 1003321467, 613321467, 613321000])."\n";
 
 
@@ -185,4 +185,15 @@ small and medium is the same as the difference between medium and large.
 so 15 rounds up to 20. Alternately, round down to the previous multiple of 10 if 
 its rightmost digit is less than 5, so 12 rounds down to 10. Given an array of ints 
 return the sum of their rounded values.
+  */
+
+/*
+UNIXTIMELAPSE FUNCTION
+given an array of INTS that are unixtime
+returns gap between each member and its neighbor, in years
+*/
+
+  /*
+  PAIRSTAR FUNCTION
+Given a longish int, compute recursively and return a string where identical digits that are adjacent in the original integer are separated from each other by a "*"
   */
