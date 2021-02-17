@@ -1,6 +1,6 @@
 <?php
 
-require_once 'constants.php';
+require_once 'ev-test-data.php';  // full path unneccessary: file in same folder
 
 interface checks {
     public function gapSame(): string;
