@@ -1,5 +1,7 @@
 <?php
 
+require_once 'constants.php';
+
 interface checks {
     public function gapSame(): string;
     public function notAlone(): string; 
@@ -8,6 +10,7 @@ interface checks {
 }
 
 class NumberLine implements checks {
+    
     function __construct(array $numbers, ?int $needle = null)
     {
         $this->numbers = $numbers;
@@ -160,6 +163,7 @@ echo "\n";
 $times = new NumberLine([]); // safe to call php with less than args
 echo "Unixtimelapse: ".$times->unixtimelapse([1813321467, 1613321467, 1003321467, 613321467, 613321000])."\n";
 
+echo implode('-', EVERAS)."\n";
 
 
 
