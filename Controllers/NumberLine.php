@@ -102,6 +102,17 @@ class NumberLine implements checks {
         return $yearlong.' years, '.$this->unixtimelapse($numbers);
     }
 
+    public function dayslapse(array $yearsasintegers): string {
+        // uncomment to see as dates
+        echo "The behavior of these functions is affected by settings in php.ini:\n";
+        // https://www.w3schools.com/php/php_ref_date.asp
+        foreach($yearsasintegers as $year){
+            $date=date_create($year."-00-00");
+            echo date_format($date,"Y/m/d")."\n";
+        }
+        return "slug";
+    }
+
 
     private function roundUp(int $n): int{
         $tens = $n / 10;
@@ -163,7 +174,8 @@ echo "\n";
 $times = new NumberLine([]); // safe to call php with less than args
 echo "Unixtimelapse: ".$times->unixtimelapse([1813321467, 1613321467, 1003321467, 613321467, 613321000])."\n";
 
-echo implode('-', EVERAS)."\n";
+echo "Dayslapse: ".$times->dayslapse(EVERAS)."\n";
+
 
 
 
