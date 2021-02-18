@@ -3,7 +3,7 @@ namespace tiberius\tests;
 
 interface arbitraryname {
     public function firstfix(string $dirty): string;
-    public function justAllCaps(string $untested): $string;
+    public function justAllCaps(string $untested): string;
 }
 
 class SED
@@ -22,5 +22,7 @@ class SED
         return ' burp '; // returning null or false would be nice
     }
 }
+echo $argc." number of args.\n";
+echo $argv[1]." <--second arg is that. \n";
 
 echo 89475908234759827345;
