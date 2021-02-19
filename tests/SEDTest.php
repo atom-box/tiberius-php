@@ -1,11 +1,20 @@
 <?php
-
 namespace tiberius\tests;
-use 'Controllers.SED.php';
+
 use PHPUnit\Framework\TestCase;
+
+// use Controllers\SED;
+require 'Controllers/SED.php';
 
 
 class SEDTest extends TestCase {
+
+    public function testNothingAtAll(){
+        // puff
+    }
+
+
     // empty so far
-    echo '--------grand royal --------------';
+    // $this->assertTrue(false);
 } 
+echo '--------grand royal --------------';

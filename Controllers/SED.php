@@ -10,7 +10,8 @@ class SED
 {
     public function firstfix($dirty)
     {
-        
+        $beforestring = argv[1] ?? $dirty; 
+        $cleaned = $beforestring;
         return $cleaned;
     }
     

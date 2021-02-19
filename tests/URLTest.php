@@ -5,7 +5,7 @@ namespace tiberius\tests;
 
 use PHPUnit\Framework\TestCase;
 // require '../Controllers/constants.php';
-require 'Controllers/constants.php';
+require 'Controllers/ev-test-data.php';
 require 'Controllers/URL.php';
 class URLtest extends TestCase
 {
