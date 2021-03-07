@@ -147,12 +147,14 @@ class NumberLine implements checks
     public function pairStar(int $rawNum): string
     {
         if ($rawNum < 10) {
-            $stringifieddigittoadd = settype($rawNum, "string");
+            settype($rawNum, "string");
+            $stringifieddigittoadd = $rawNum;
             return $stringifieddigittoadd;
         }
         $undealtwithdigits = $rawNum / 10;
         $rightDigit = $rawNum % 10;
-        $stringifieddigittoadd = settype($rightDigit, 'string');
+        settype($rightDigit, 'string');
+        $stringifieddigittoadd = $rightDigit;
         return $this->pairStar($undealtwithdigits) . '*' . $stringifieddigittoadd;
     }
 }
