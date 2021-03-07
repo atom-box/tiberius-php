@@ -144,19 +144,48 @@ class NumberLine implements checks
         return false;
     }
 
+    // public function pairStar(int $rawNum): string
+    // {
+    //     if ($rawNum < 10) {
+    //         settype($rawNum, "string");
+    //         $stringifieddigittoadd = $rawNum;
+    //         return $stringifieddigittoadd;
+    //     }
+    //     $undealtwithdigits = $rawNum / 10;
+    //     $rightDigit = $rawNum % 10;
+    //     settype($rightDigit, 'string');
+    //     $stringifieddigittoadd = $rightDigit;
+    //     return $this->pairStar($undealtwithdigits) . '*' . $stringifieddigittoadd;
+    // }
     public function pairStar(int $rawNum): string
     {
-        if ($rawNum < 10) {
-            settype($rawNum, "string");
-            $stringifieddigittoadd = $rawNum;
-            return $stringifieddigittoadd;
-        }
-        $undealtwithdigits = $rawNum / 10;
-        $rightDigit = $rawNum % 10;
-        settype($rightDigit, 'string');
-        $stringifieddigittoadd = $rightDigit;
-        return $this->pairStar($undealtwithdigits) . '*' . $stringifieddigittoadd;
+        echo "Before:        " . $rawNum . "\n";
+        $stringedNumber = (string) $rawNum;
+        $allChars = str_split($stringedNumber);
+        $answer = $this->cushion($allChars);
+        return $answer;
     }
+
+    private function cushion(array $allChars): string
+    {
+        if (count($allChars) === 0) {
+            return '';
+        }
+        if (count($allChars) === 1) {
+            return $allChars[0];
+        }
+        $leftChar = array_shift($allChars);
+        $answer = $leftChar === $allChars[0] ? $leftChar . '*' : $leftChar;
+        // echo "----we just looked at [$leftChar] and [$allChars[0]]\n";
+        return $answer . $this->cushion($allChars);
+    }
+
+    // int to string
+    // explode the string
+    // recuRsive subfunction give recentchar and nowchar
+    //     IF RECENTCHAR === NOWCHAR, RETURN STAR.NOWCHAR ELSE RETURN NOWCHAR
+    // append that result 
+    // return all 
 }
 
 $tool = new Numberline([2, 4, 6]);
@@ -176,6 +205,7 @@ echo "Alone: " . $tool->notAlone() . "\n"; // [3, 4]
 echo "\n";
 
 $hopper = new Numberline([16]);
+
 echo "Roundthensum: " . $hopper->roundThenSum() . "\n"; // 60
 $hopper = new Numberline([12, 13, 14]);
 echo "Roundthensum: " . $hopper->roundThenSum() . "\n"; // 30
@@ -200,9 +230,9 @@ echo "Dayslapse: " . $times->dayslapse(EVERAS) . "\n";
 
 echo "PAIRSTAR\n";
 $sanitizer = new NumberLine([]);  // not safe to call with no array. the above worked b/c empty array
-echo $sanitizer->pairStar(31036899688) . "\n";
-echo $sanitizer->pairStar(29261392944) . "\n";
-echo $sanitizer->pairStar(00456111456) . "\n";
+echo "Starred pairs: " . $sanitizer->pairStar(31036899688) . "\n";
+echo "Starred pairs: " . $sanitizer->pairStar(29261392944) . "\n";
+echo "Starred pairs: " . $sanitizer->pairStar(20000456111456) . "\n";
 
 
 /*
