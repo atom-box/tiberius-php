@@ -12,7 +12,11 @@ Once you have a fork cloned to your local machine, practice your coding routine 
 * algorithms (fizz buzz solutions!)
 ## All this project does is serve a static page
 This code generates a simple web page.  
+
 ![screenshot of the final result](https://raw.githubusercontent.com/atom-box/tiberius-php/master/resources/images/challenges-screenshot.png)
+  
+You have to do something like this: `php -S localhost:8000`.  
+Then you can view your page in Firefox or similar.
 ## How to get started
 On your local machine, clone this site and use it as a starting point for your daily messing around. I think the below steps will work if you have php installed and you have cloned this site. Let me know if this site is useful to you. If you follow these instructions you should end up with a simple page like this in your browser:
  
