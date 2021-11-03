@@ -11,6 +11,9 @@
             font-size: 3rem;
         }
 
+        .centering-container {
+            text-align: center;
+        }
     /* 
     CHALKBOARD CLASSES
     */
