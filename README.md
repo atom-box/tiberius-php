@@ -12,7 +12,11 @@ Once you have a fork cloned to your local machine, practice your coding routine 
 * algorithms (fizz buzz solutions!)
 ## All this project does is serve a static page
 This code generates a simple web page.  
+
 ![screenshot of the final result](https://raw.githubusercontent.com/atom-box/tiberius-php/master/resources/images/challenges-screenshot.png)
+  
+You have to do something like this: `php -S localhost:8000`.  
+Then you can view your page in Firefox or similar.
 ## How to get started
 On your local machine, clone this site and use it as a starting point for your daily messing around. I think the below steps will work if you have php installed and you have cloned this site. Let me know if this site is useful to you. If you follow these instructions you should end up with a simple page like this in your browser:
  
@@ -53,14 +57,3 @@ Lancecourse has a quickstart list of [how to do a test](https://lancecourse.com/
 * David Powers PHP 7 (book)
 * basic useage of [Composer](https://getcomposer.org/doc/01-basic-usage.md)
 * the actual challenge questions come from Stanford University's Compsci Dept: [codingbat](https://codingbat.com/)
-
-## Connect
-I'm on Twitter at @mistergenest    	&#x1f426; <br/>
-This repo is where I work between the time I wake up and the time the rest of my house wakes up. &#x1f304; <br/>
-My day job is working LAMP stack for an ecommerce company.  
-## The Historical Tiberius
-I needed a naming system that gave my project folders an implied sequence.  This one is Tiberius, the next is Caligula. 
-
-BTW, the 3-D artist Daniel Voshart has released new, accurate reconstructions of what the caesars looked like. One of these is a realistic reconstruction of [Tiberius](https://www.ancient.eu/image/12979/tiberius-facial-reconstruction/)
-
-
